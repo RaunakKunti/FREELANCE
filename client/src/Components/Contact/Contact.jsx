@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../Store/Auth.jsx";
+import { toast } from "react-toastify";
 
 export const Contact = () => {
   const [data, setData] = useState({
@@ -43,6 +44,7 @@ export const Contact = () => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
+        toast.success("Message sent successfully!");
         const res_data = await response.json();
         console.log("data stored successfully", res_data);
         setData({
