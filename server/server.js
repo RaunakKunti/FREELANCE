@@ -12,6 +12,7 @@ const app = express();
 //connection between frontend and baackend
 const corsOptions = {
   origin: "http://localhost:5173",
+  origin: "https://deploy-mern-1whq.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
