@@ -10,19 +10,25 @@ const cors = require("cors");
 const app = express();
 
 //connection between frontend and baackend
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://deploy-mern-1whq.vercel.app",
-];
-
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "http://localhost:5173",
+  // origin: "https://deploy-mern-1whq.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+};
+// const allowedOrigins = [
+//   "http://localhost:5173",
+//   "https://deploy-mern-1whq.vercel.app",
+// ];
+
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
 app.use(cors(corsOptions));
 app.use(express.json());
 
